@@ -1,8 +1,124 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: #000000;
+    background: #3a3939;
     color: #ffffff;
+}
+
+#tablero {
+    border: 4px solid #1473cc;
+    width: 800px;
+    height: 500px;
+    display: flex;
+}
+
+.campo2 {
+    width: 50%;
+    height: 50%;
+    /* display: inline-block; */
+}
+
+#campoJugador {
+    width: 50%;
+    margin: auto 0;
+    /* El padding de abajo debe ser comentado en caso de que el height del campo1 cambie */
+    padding: 43px 0px;
+    border-right: 2px solid #1473cc;
+    /* border-top: 2px solid #1473cc; */
+}
+
+/* #campoOponente, #campoResultado {
+} */
+
+#campoOponente {
+    /* border: 2px solid #ff4a68; */
+    height: 100%;
+    border-left: 2px solid #1473cc;
+    border-bottom: 2px solid #1473cc;
+    /* display: flex; */
+}
+
+#campoResultado {
+    /* border: 2px solid #008000; */
+    height: 100%;
+    border-left: 2px solid #1473cc;
+    border-top: 2px solid #1473cc;
+}
+
+#cajaArma {
+    margin: 0 auto;
+    border: 4px solid #ff0000;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cajaArma2 {
+    /* text-align: center; */
+    margin: auto auto;
+    border: 4px solid #ff0000;
+    width: 175px;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#norma {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    margin: 20px 0;
+}
+
+#normaOp {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    padding: 10px 0px;
+    /* margin: 20px 0 */
+}
+#armaJugador {
+    width: 200px;
+}
+
+#armaOponente {
+    width: 125px;
+}
+
+.botonera {
+    margin: 25px 0;
+    text-align: center;
+}
+
+[type=button] {
+    background: linear-gradient(to right, #196BCA, #6433E0);
+    background-color: #196BCA;
+    color: #fff;
+    font-family: Trebuchet MS;
+    font-size: 18px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+    padding: 14px 15px;
+    border: 0px solid #000;
+    border-radius: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[type=button]:hover {
+    background: linear-gradient(to right, #5482d0, #7d5ee3);
+    background-color: #5482d0;
+}
+
+[type=button]:active {
+    transform: scale(0.95);
 }

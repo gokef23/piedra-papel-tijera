@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" type="text/javascript"></script>
     <title>Piedra, Papel o Tijera</title>
 </head>
+
 <body>
     <header>Piedra, Papel o Tijera</header>
     <section>
         <article>
-            <div class="tablero">
+            <div id="tablero">
+                <div class="campo1" id="campoJugador">
+                    <p id="norma">Elige tu arma:</p>
+                    <div id="cajaArma">
+                        <img id="armaJugador" src="" alt="">
+                    </div>
+                    <div class="botonera">
+                        <input class="botones" type="button" name="piedra.png" value="Piedra" onmouseover="mostrarArma(this.name);"
+                            onmouseout="ocultarArma();" onclick="jugar(this.value);">
+                        <input class="botones" type="button" name="papel.png" value="Papel" onmouseover="mostrarArma(this.name);"
+                            onmouseout="ocultarArma();" onclick="jugar(this.value);">
+                        <input class="botones" type="button" name="tijera.png" value="Tijera" onmouseover="mostrarArma(this.name);"
+                            onmouseout="ocultarArma();" onclick="jugar(this.value);">
+                        <!-- <input type="button" name="siguiente" value="Siguiente Ronda" onclick="jugar(this.value);"> -->
+                    </div>
+                </div>
+                <div class="campo2">
+                    <div id="campoOponente">
+                        <p id="normaOp">El oponente eligió :</p>
+                        <div id="cajaArma2">
+                            <img id="armaOponente" src="" alt="">
+                        </div>
+                    </div>
+                    <div id="campoResultado">
+                        <p id="Resultado"></p>
+                    </div>
+                </div>
             </div>
         </article>
     </section>
 </body>
+
 </html>
