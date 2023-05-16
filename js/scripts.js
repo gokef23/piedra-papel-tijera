@@ -1,5 +1,11 @@
 var armaSeleccionada = "";
 
+let rondaAnterior = localStorage.getItem("rondaActual");
+if (!rondaAnterior) {
+    rondaAnterior = 0;
+    localStorage.setItem("rondaActual", rondaAnterior);
+}
+
 function mostrarArma(nombreArma) {
     document.getElementById("armaJugador").src = "icons/" + nombreArma;
 }
@@ -28,23 +34,32 @@ function seleccionArmaOponente() {
 
 function crearBoton(idElementoPadre, valorBoton, funcionOnClick) {
     var padre = document.getElementById(idElementoPadre);
-    var boton = document.createElement("button");
-    boton.innerHTML = valorBoton;
+    var boton = document.createElement("input");
+    boton.type = "button";
+    boton.value = valorBoton;
     boton.onclick = funcionOnClick;
     padre.appendChild(boton);
-  }
-  
+}
 
 function mostrarResultado(arma1, arma2, resultado) {
-    document.getElementById("Resultado").innerHTML = "El resultado es -> " + resultado + " (Jugador: " + arma1 + " / Oponente: " + arma2 + ")";
+    // var rondaAnterior = localStorage.getItem("rondaActual");
+    rondaAnterior++;
+    localStorage.setItem("rondaActual", rondaAnterior);
+
+    // var rondaAnterior = localStorage.getItem("rondaActual");
+
+
+    document.getElementById("Resultado").innerHTML = "Ronda " + rondaAnterior + "<br />" + "El resultado es -> " + resultado + " (Jugador: " + arma1 + " / Oponente: " + arma2 + ")";
+}
+
+function recargarPagina() {
+    location.reload();
 }
 
 function jugar(armaJugador) {
     armaSeleccionada = armaJugador;
     var armaOponente = seleccionArmaOponente();
     var resultado;
-    // window.alert("El jugador eligió " + armaJugador);
-    // window.alert("El oponente eligió " + seleccionArmaOponente());
 
     // document.getElementById("armaOponente").src = "icons/" + armaOponente;
 
@@ -67,7 +82,12 @@ function jugar(armaJugador) {
     }
     mostrarResultado(armaSeleccionada, armaOponente, resultado);
 
-    crearBoton("botones");
+    if (rondaAnterior >= 5) {
+        localStorage.removeItem("rondaActual");
+        crearBoton("botonera", "Reiniciar", recargarPagina);
+    } else {
+        crearBoton("botonera", "Siguiente Nivel", recargarPagina);
+    }
 }
 
 
